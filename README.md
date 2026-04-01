@@ -6,7 +6,7 @@
 
 ## 📌 Project Overview
 
-This project is a **Full Stack E-commerce Web Application** developed for the **Software Engineering Sessional** course.
+This project is a **Full Stack E-commerce Web Application**
 
 The system allows users to:
 
@@ -99,6 +99,45 @@ project-root/
 │
 └── README.md
 ```
+---
+## User Interface Screenshots
+
+### 🏠 Home Page
+
+![Home Page](./screenshots/home.png)
+
+---
+
+### 🔍 Product Search
+
+![Search](./screenshots/search.png)
+
+---
+
+### 🛒 Product Details
+
+![Product Details](./screenshots/product.png)
+
+---
+
+### 🛍️ Cart Page
+
+![Cart](./screenshots/cart.png)
+
+---
+
+### 🔐 Login / Signup
+
+![Auth](./screenshots/auth.png)
+
+---
+
+### 🛠️ Admin Dashboard
+
+![Admin](./screenshots/admin.png)
+
+---
+
 
 ---
 
