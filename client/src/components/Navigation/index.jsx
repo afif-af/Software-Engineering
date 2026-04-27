@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import {GoRocket} from "react-icons/go";
 import CategoryPanel from "./CategoryPanel.jsx";
 
-import "../Navigation/style.css"
+import "./style.css"
 
 const Navigation = () => {
 

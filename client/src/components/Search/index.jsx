@@ -1,5 +1,5 @@
 import React from "react";
-import "../Search/style.css";
+import "./style.css";
 import { Button } from "@mui/material";
 import { IoSearch } from "react-icons/io5";
 
@@ -31,7 +31,7 @@ export default Search;
 
 
 // import React from 'react';
-// import '../Search/style.css'
+// import '../Search/AdsBanner.css'
 // import {Button} from "@mui/material";
 // import {IoSearch} from "react-icons/io5"
 //
