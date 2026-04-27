@@ -1,6 +1,6 @@
 
 import './App.css'
-import {createBrowserRouter, RouterProvider} from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./components/Header/index.jsx";
 
 
@@ -10,12 +10,11 @@ function App() {
             path: "/",
             exact: true,
             element:(
-                <>
-                    <section className="main">
+
+                    <section className="main ">
                         <Header/>
 
                     </section>
-                </>
             )
         }
     ])
