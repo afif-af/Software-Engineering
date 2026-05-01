@@ -4,7 +4,12 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import helmet from "helmet";
+import swaggerUi from "swagger-ui-express";
+import swaggerJsdoc from "swagger-jsdoc";
+
 import connectDb from "./config/connectDb.js";
+import userRouter from "./route/user.route.js";
+import cartRouter from "./route/cart.route.js";
 
 dotenv.config();
 
@@ -28,6 +33,33 @@ app.use(
     helmet({
         crossOriginResourcePolicy: false,
     })
+);
+
+
+
+const options = {
+    definition: {
+        openapi: "3.0.0",
+        info: {
+            title: "E-commerce API",
+            version: "1.0.0",
+            description: "API documentation for users and cart routes",
+        },
+        servers: [
+            {
+                url: `http://localhost:${PORT}`,
+            },
+        ],
+    },
+    apis: ["./route/*.js"], // route folder scan করবে
+};
+
+const specs = swaggerJsdoc(options);
+
+app.use(
+    "/api-docs",
+    swaggerUi.serve,
+    swaggerUi.setup(specs)
 );
 
 
@@ -60,7 +92,6 @@ app.get("/home", (req, res) => {
     });
 });
 
-
-
-
+app.use("/api/users", userRouter);
+// app.use("/api/cart", cartRouter);
 
