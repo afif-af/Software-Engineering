@@ -12,6 +12,8 @@ import {FaRegHeart} from "react-icons/fa6";
 
 const ProductItem = () => {
 
+    // const context =useContext(MyContext);
+
     return (
         <div className="productItem rounded-md shadow-lg overflow-hidden border-1 border-[rgba(0,0,0,0.1)]" >
             <div className="group imageWrapper w-[100%]  overflow-hidden  rounded-md relative">
@@ -33,16 +35,23 @@ const ProductItem = () => {
                 <div className="actions flex-col w-[50px] absolute top-[-200px] right-[5px] z-50 flex items-center gap-2 transition-all duration-300
                 group-hover:top-[15px] opacity-0 group-hover:opacity-100  ">
 
-                        <Button className="!w-[35px] !h-[35px] !min-w-[35px] !rounded-full">
+                        <Button className="!w-[35px] !h-[35px] !min-w-[35px] !rounded-full !bg-white
+                        text-black hover:!bg-primary hover:text-white group" >
+                            {/*onclick={()=>context.setOpenProductDetailslModal(true)}*/}
+
+
+
                             <MdZoomOutMap className="text-[18px]"/>
                         </Button>
 
-                        <Button className="!w-[35px] !h-[35px] !min-w-[35px] !rounded-full">
-                            <IoGitCompareOutline className="text-[18px]"/>
+                    <Button className="!w-[35px] !h-[35px] !min-w-[35px] !rounded-full !bg-white
+                        text-black hover:!bg-primary hover:text-white group" >
+                            <IoGitCompareOutline className="text-[18px] !text-black group-hover:text-white hover:!text-white"/>
                         </Button>
 
-                        <Button className="!w-[35px] !h-[35px] !min-w-[35px] !rounded-full">
-                            <FaRegHeart className="text-[18px]"/>
+                    <Button className="!w-[35px] !h-[35px] !min-w-[35px] !rounded-full !bg-white
+                        text-black hover:!bg-primary hover:text-white group" >
+                        <FaRegHeart className="text-[18px] !text-black group-hover:text-white hover:!text-white"/>
                         </Button>
 
 

@@ -134,7 +134,7 @@ const CartItems = (props) => {
 
 
                 <div className="flex items-center gap-4 mt-2">
-                                    <span className="price text-[14px] font-[600]">
+                    <span className="price text-[14px] font-[600]">
                                         $58.00
                                     </span>
 
