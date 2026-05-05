@@ -34,7 +34,7 @@ const Navigation = () => {
                             <li className="list-none">
                                 <Link to="/" className="link transition text-[16px] font-[500] ">
                                     <Button className="!link transition !text-black font-[500]
-                                      hover:!text-[#ff5252]">
+                                      hover:!text-[#ff5252] !py-4">
                                         Home
                                     </Button>
                                 </Link>
@@ -43,7 +43,7 @@ const Navigation = () => {
                             <li className="list-none relative">
                                 <Link to="/" className="link transition text-[16px] font-[500] ">
                                     <Button className="!link transition !text-black font-[500]
-                                      hover:!text-[#ff5252] ">
+                                      hover:!text-[#ff5252] !py-4">
                                         Fashion
                                     </Button>
                                 </Link>
@@ -104,19 +104,27 @@ const Navigation = () => {
                                        </li>
                                             <li className="list-none w-full">
                                                 <Link to="/">
-                                                    <Button className="!text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !rounded-none">Women</Button></Link>
+                                                    <Button className="!text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !rounded-none ">
+                                                        Women
+                                                    </Button></Link>
                                             </li>
                                            <li className="list-none w-full">
                                                <Link to="/">
-                                                   <Button className="!text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !rounded-none">Kids</Button></Link>
+                                                   <Button className="!text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !rounded-none">
+                                                       Kids
+                                                   </Button></Link>
                                            </li>
                                            <li className="list-none w-full">
                                                <Link to="/">
-                                                   <Button className="!text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !rounded-none">Girls</Button></Link>
+                                                   <Button className="!text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !rounded-none">
+                                                       Girls
+                                                   </Button></Link>
                                            </li>
                                            <li className="list-none w-full">
                                                <Link to="/">
-                                                   <Button className="!text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !rounded-none">Boys</Button></Link>
+                                                   <Button className="!text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !rounded-none">
+                                                       Boys
+                                                   </Button></Link>
                                            </li>
                                    </ul>
                                 </div>

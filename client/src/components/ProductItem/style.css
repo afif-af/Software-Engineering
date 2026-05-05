@@ -1,0 +1,72 @@
+.productItem .title{
+    line-height: 18px;
+}
+
+/* Image Container */
+.productItem .imageWrapper {
+    position: relative;
+}
+
+.productItem .imageWrapper .img {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+/* Image Styling */
+.productItem .imageWrapper img {
+    transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* First image - always visible, zooms on hover */
+.productItem .imageWrapper img:first-of-type {
+    transition: transform 0.7s ease-in-out;
+}
+
+/* Second image - starts hidden, fades in on hover */
+.productItem .imageWrapper img:last-of-type {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}
+
+/* Zoom effect on hover - both images will zoom */
+.productItem .imageWrapper:hover img {
+    transform: scale(1.15);
+}
+
+/* Second image becomes visible on hover */
+.productItem .imageWrapper:hover img:last-of-type {
+    opacity: 1;
+}
+
+/* Action Buttons Styling */
+.productItem .actions button {
+    pointer-events: auto !important;
+    background-color: white !important;
+    color: #000 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.productItem .actions button:hover {
+    background-color: #ff5252 !important;
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 82, 82, 0.3) !important;
+}
+
+.productItem .actions button:hover svg {
+    color: white !important;
+}
+
+.productItem .actions button svg {
+    color: #000 !important;
+}

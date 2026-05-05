@@ -1,0 +1,14 @@
+.btn-lg{
+    font-size: 18px;
+    padding: 10px 20px !important;
+    background: #ff5252 !important;
+    color: #f5f0f0 !important;
+    font-weight: 500;
+
+
+}
+
+.btn-lg:hover{
+    background: #171717 !important;
+
+}

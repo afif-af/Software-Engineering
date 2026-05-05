@@ -95,7 +95,11 @@ const Index = () => {
                            </li>
                            <li>
                                <Tooltip title="Wishlist">
-                                   <IconButton aria-label="cart">
+                                   <IconButton
+                                       aria-label="wishlist"
+                                       component={Link}
+                                       to="/wishlist"
+                                   >
                                        <StyledBadge badgeContent={4} color="secondary">
                                            <FaRegHeart size={22}  />
                                        </StyledBadge>
@@ -104,7 +108,12 @@ const Index = () => {
                            </li>
                            <li>
                                <Tooltip title="Cart">
-                                   <IconButton aria-label="cart">
+                                   <IconButton
+                                       aria-label="cart"
+                                       component={Link}
+                                       to="/cart"
+
+                                   >
                                        <StyledBadge badgeContent={4} color="secondary">
                                            <MdOutlineShoppingCart size={22}  />
                                        </StyledBadge>

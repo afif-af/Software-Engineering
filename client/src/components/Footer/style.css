@@ -1,0 +1,238 @@
+.btn-org{
+    background: #ff5252 !important;
+    color: #fff !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(255, 82, 82, 0.3) !important;
+    cursor: pointer !important;
+}
+
+.btn-org:hover {
+    background: #ff3636 !important;
+    box-shadow: 0 6px 20px rgba(255, 82, 82, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+.btn-org:active {
+    transform: translateY(0) !important;
+}
+
+footer form input::placeholder{
+    font-size: 14px;
+    color: #b0b0b0;
+}
+
+/* Footer sections styling */
+.footer-main {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section h2 {
+    position: relative;
+    padding-bottom: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #ff5252;
+    border-radius: 2px;
+}
+
+/* Link styling */
+.link {
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    color: inherit !important;
+}
+
+.link:hover {
+    color: #ff5252 !important;
+}
+
+/* Input styling */
+input[type="email"],
+input[type="text"] {
+    transition: all 0.3s ease !important;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus {
+    transform: translateY(-1px) !important;
+}
+
+/* List spacing */
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*import React from 'react';*/
+/*import {LiaGiftSolid, LiaGiftsSolid, LiaShippingFastSolid} from "react-icons/lia";*/
+/*import {PiKeyReturnLight} from "react-icons/pi";*/
+/*import {GifTwoTone, PaymentOutlined, SupportAgent} from "@mui/icons-material";*/
+/*import {BsWallet2} from "react-icons/bs";*/
+/*import {BiSupport} from "react-icons/bi";*/
+/*import {Link} from "react-router-dom";*/
+/*import {IoChatboxOutline} from "react-icons/io5";*/
+/*import {Button, Checkbox, FormControlLabel} from "@mui/material";*/
+/*import './style.css'*/
+
+/*const Footer = () => {*/
+/*                       return (*/
+/*                       <footer className="py-6 bg-[#fafafa] border1 border-cyan-950">*/
+
+/*                       <div className="container">*/
+/*                       <div className="flex items-center justify-center gap-5 py-8 pb-8  ">*/
+
+/*                       <div className="col flex items-center justify-center flex-col group w-[15%] ">*/
+/*                       <LiaShippingFastSolid className="text-[40px] group-hover:text-primary transition-all duration-300  group-hover:-translate-y-1  "/>*/
+/*                       <h3 className="text-[16px] font-[600] mt-3  " >Free Shipping</h3>*/
+/*                       <p className=" text-[12px] font-[500] "> For all Orders Over $100</p>*/
+
+/*                       </div>*/
+/*                       <div className="col flex items-center justify-center flex-col group w-[15%] ">*/
+/*                       <PiKeyReturnLight className="text-[40px] group-hover:text-primary transition-all duration-300  group-hover:-translate-y-1  "/>*/
+/*                       <h3 className="text-[16px] font-[600] mt-3  " >30 Days Returns</h3>*/
+/*                       <p className=" text-[12px] font-[500] "> For all Exchange Product</p>*/
+
+/*                       </div>*/
+/*                       <div className="col flex items-center justify-center flex-col group w-[15%] ">*/
+/*                       <BsWallet2 className="text-[40px] group-hover:text-primary transition-all duration-300  group-hover:-translate-y-1  "/>*/
+/*                       <h3 className="text-[16px] font-[600] mt-3  " >Secured Payment</h3>*/
+/*                       <p className=" text-[12px] font-[500] "> Payment Cards Accepted</p>*/
+
+/*                       </div>*/
+/*                       <div className="col flex items-center justify-center flex-col group w-[15%] ">*/
+/*                       <LiaGiftSolid className="text-[40px] group-hover:text-primary transition-all duration-300  group-hover:-translate-y-1  "/>*/
+/*                       <h3 className="text-[16px] font-[600] mt-3  " >Special Gifts</h3>*/
+/*                       <p className=" text-[12px] font-[500] "> Our First Product Order</p>*/
+
+/*                       </div>*/
+/*                       <div className="col flex  items-center justify-center flex-col group w-[15%] ">*/
+/*                       <BiSupport className="text-[40px] group-hover:text-primary transition-all duration-300  group-hover:-translate-y-1  "/>*/
+/*                       <h3 className="text-[16px] font-[600] mt-3  " >Support 24/7</h3>*/
+/*                       <p className=" text-[12px] font-[500] "> Contact us Anytime</p>*/
+
+/*                       </div>*/
+
+
+/*                       </div>*/
+
+/*                       <hr/>*/
+
+
+/*                       <div className="footer flex py-8" >*/
+/*                       <div className="part1 w-[25%] border-r border-[rgba(0,0,0,0.2)] ">*/
+/*                       <h2 className="text-[18px] font-[600] mb-4">*/
+/*                       Contact Us*/
+/*                       </h2>*/
+/*                       <p className="text-[13px] font-[400] pb-4">*/
+/*                       Classyshop - Mega Super Store*/
+/*                       <br/>*/
+/*                       507-Union Trade Center France*/
+/*                       </p>*/
+
+
+
+
+/*                       <Link className="link" to="mailto:someone@example.com">*/
+/*                       sales@company.com*/
+/*                       </Link>*/
+
+/*                       <span className="text-[22px] font-[600] block w-full mt-3 text-primary ">*/
+/*                       (+88)01600000000*/
+/*                   </span>*/
+
+/*                   <div className="flex items-center gap-2  ">*/
+/*                   <IoChatboxOutline className="text-[40px] text-primary"/>*/
+
+/*                   <span className="text-[16px] font-[600] ">Online Chat <br/>*/
+/*                   Get Expert Help*/
+/*                   </span>*/
+
+/*                   </div>*/
+
+/*                   </div>*/
+
+/*                   <div className="part2 w-[40%] !flex  pl-8  ">*/
+/*                   <div className="part2_col1 w-[50%] ">*/
+/*                   <h2 className="text-[20px] font-[600] mb-4">Products</h2>*/
+
+/*                   <ul className="list">*/
+/*                   <Link className="link text-[14px] w-full  mb-1" to="/">Price drop</Link>*/
+/*                   <Link className="link text-[14px] w-full  mb-1" to="/">New Products</Link>*/
+/*                   <Link className="link text-[14px] w-full  mb-1" to="/">Best Sales</Link>*/
+
+/*                   <Link className="link text-[14px] w-full  mb-1" to="/">Contact Us</Link>*/
+/*                   <Link className="link text-[14px] w-full  mb-1" to="/">Sitemap</Link>*/
+/*                   <Link className="link text-[14px] w-full  mb-1" to="/">Stores</Link>*/
+
+
+
+/*                   </ul>*/
+
+/*                   </div>*/
+
+/*                   <div className="part2_col1 w-[50%] ">*/
+/*                   <h2 className="text-[18px] font-[600] mb-4">Our Company</h2>*/
+
+/*                   <ul className="list">*/
+/*                   <Link className="link text-[14px] w-full  mb-1" to="/">Delivery</Link>*/
+/*                   <Link className="link text-[14px] w-full  mb-1" to="/">Legal Notice</Link>*/
+/*                   <Link className="link text-[14px] w-full  mb-1" to="/">Terms and Condition of use</Link>*/
+
+/*                   <Link className="link text-[14px] w-full  mb-1" to="/">About Us</Link>*/
+/*                   <Link className="link text-[14px] w-full  mb-1" to="/">Secure Payment</Link>*/
+/*                   <Link className="link text-[14px] w-full  mb-1" to="/">Login</Link>*/
+
+
+
+
+/*                   </ul>*/
+
+/*                   </div>*/
+/*                   </div>*/
+
+/*                   <div className="part3 w-[35%] flex pl-8">*/
+/*                   <h2 className="text-[18px] font-[600] mb-4">Subscribe to newsletter</h2>*/
+/*                   <p className="text-[13px] ">*/
+/*                   Subscribe to our latest newsletter to get newsletter to get news about special discount*/
+/*                   </p>*/
+/*                   <form className="mt-5 ">*/
+/*                   <input type="text" className="w-full focus:border-[rgba(0,0,0,0.1)] mb-4 h-[45px] border outline-none plt-4 pr-4 rounded-sm" placeholder="your Email Address"/>*/
+
+/*                   <Button className="btn-org">SUBSCRIBE </Button>*/
+
+/*                   <FormControlLabel control={ <Checkbox defaultChecked /> } label="Label"/>*/
+
+
+
+/*    </form>*/
+/*    </div>*/
+
+/*    </div>*/
+/*    </div>*/
+/*    </footer>*/
+/*                   );*/
+/*                   };*/
+
+/*export default Footer;*/

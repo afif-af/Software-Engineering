@@ -1,0 +1,80 @@
+/* style.css */
+
+/* Timeline container styles */
+.order-timeline {
+    position: relative;
+    padding-left: 0.5rem;
+}
+
+/* Ensure the vertical connector lines are positioned correctly */
+.order-timeline .relative {
+    position: relative;
+}
+
+.order-timeline .absolute {
+    z-index: 0;
+}
+
+/* Adjust the left offset of the vertical line to match the circle position */
+.order-timeline .absolute.left-3 {
+    left: 0.75rem; /* 12px - matches the circle's center */
+}
+
+/* Make sure the circles are above the lines */
+.order-timeline .w-8.h-8 {
+    position: relative;
+    z-index: 1;
+}
+
+/* Optional: Smooth transitions for hover effects on order cards */
+.order-card {
+    transition: all 0.3s ease;
+}
+
+/* Custom scrollbar for dialogs (optional) */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* MUI Dialog content padding fix (optional) */
+.MuiDialogContent-root {
+    padding-top: 8px !important;
+}
+
+/* Ensure responsive container width (if not covered by Tailwind) */
+.container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
