@@ -30,3 +30,24 @@ body{
 /*nav button {*/
 /*  text-transform: capitalize !important;*/
 /*}*/
+
+.reviewScroll::-webkit-scrollbar-thumb{
+  background: #ccc !important;
+}
+
+.reviewScroll::-webkit-scrollbar{
+  width:5px !important;
+}
+
+
+p {
+  font-size: 14px;
+  line-height: 25px;
+  margin-bottom: 10px;
+}
+
+
+h1, h2, h3, h5, h6{
+  font-weight: 600 }
+
+

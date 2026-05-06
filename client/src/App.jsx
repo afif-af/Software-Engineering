@@ -15,6 +15,7 @@ import CartPage from "./pages/Cart/index.jsx";
 // import {IoCloseSharp} from "react-icons/io5";
 
 import {createContext} from "react";
+// import ProductDetails from "./pages/ProductDetails/index.jsx";
 
 
 
@@ -57,7 +58,6 @@ function App() {
                 <Route path={"/productlist"} element={<ProductListing/>} />
 
                 {/*<Route path={"/product/:id"}*/}
-                {/*       exact={true}*/}
                 {/*       element={<ProductDetails/>} />*/}
 
 

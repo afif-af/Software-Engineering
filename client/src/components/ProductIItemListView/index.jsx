@@ -4,7 +4,8 @@ import {Link} from 'react-router-dom'
 import {Button} from "@mui/material";
 import {MdZoomOutMap} from "react-icons/md";
 import {IoGitCompareOutline} from "react-icons/io5";
-
+import img1 from "../../assets/saree1.jpg"
+import img2 from "../../assets/saree2.webp"
 
 
 
@@ -16,8 +17,8 @@ const ProductItemListView = () => {
             <div className="group imageWrapper w-[25%] overflow-hidden rounded-md relative" >
                 <Link to="/product/85758">
                     <div className="img h-[220px] overflow-hidden">
-                      <img src="" className="w-full" />
-                        <img src="" className="w-full transition-all duration-700 absolute top-0 left-0 opacity-0 group-hover:opacity-100 group-hover:scale-105"/>
+                      <img src={img1} className="w-full" />
+                        <img src={img2} className="w-full transition-all duration-700 absolute top-0 left-0 opacity-0 group-hover:opacity-100 group-hover:scale-105"/>
 
 
 
@@ -28,7 +29,7 @@ const ProductItemListView = () => {
                 </span>
                 <div className="actions top-[-20px] right-[5px] z-50 flext items-center gap-2 flex-col w-[50px] transition-all duration-300 group-hover:top-[15px] opacity-0 group-hover:opacity-100">
                     <Button className="!w-[35px] !h-[35px] !min-w-[35px] !rounded-full !bg-white text-black
-                    hover:!bg-primary hover:text-white group" }>
+                    hover:!bg-primary hover:text-white group" >
                         {/*onClick={()=>*/}
                         {/*contextOpenProductDetailsModdal(true)*/}
                         <MdZoomOutMap className="text-[18px] !text-black group-hover:text-white

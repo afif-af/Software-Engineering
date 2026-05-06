@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css'
-import productItem from '../../assets/product/imitation-jewellery-20240820.png'
-import productItem2 from '../../assets/product/1751996846_Electronics1.png'
+import productItem from '../../assets/saree1.jpg'
+import productItem2 from '../../assets/saree2.webp'
 
 import {Link} from "react-router-dom";
 import {Button, Rating} from "@mui/material";
