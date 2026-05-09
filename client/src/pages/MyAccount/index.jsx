@@ -9,7 +9,7 @@ const MyAccount = () => {
     const [tabValue, setTabValue] = useState(0);
     const [editMode, setEditMode] = useState(false);
     const [openAddressDialog, setOpenAddressDialog] = useState(false);
-    const [openEditDialog, setOpenEditDialog] = useState(false);
+    // const [openEditDialog, setOpenEditDialog] = useState(false);
 
     // Sample user data
     const [userData, setUserData] = useState({
@@ -90,9 +90,9 @@ const MyAccount = () => {
         }
     ]);
 
-    const handleTabChange = (event, newValue) => {
-        setTabValue(newValue);
-    };
+    // const handleTabChange = (event, newValue) => {
+    //     setTabValue(newValue);
+    // };
 
     const handleEditProfile = () => {
         setEditMode(!editMode);
