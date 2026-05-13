@@ -1,4 +1,4 @@
-.MuCheckbox-root{
+.MuiCheckbox-root{
     padding:6px !important;
 
 }
@@ -19,4 +19,14 @@
 }
 .ReactCollapse--collapse{
     transition: height 400ms;
+}
+
+
+.range-slider .range-slider__thumb{
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.range-slider {
+    height: 3px !important;
 }

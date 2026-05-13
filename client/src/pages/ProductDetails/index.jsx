@@ -1,11 +1,15 @@
 import React, {useState} from 'react';
 import {Breadcrumbs, Button, Rating, TextField} from "@mui/material";
-import {Link} from "@mui/material";
-import {ProductZoom} from "../../components/ProductZoom";
+import {Link} from "react-router-dom";
+import ProductZoom from "../../components/ProductZoom/index.jsx";
 import img from "../../assets/saree2.webp"
 
 import ProductDetailsComponents from "../../components/ProductDetails/index.jsx";
 import ProductsSlider from "../../components/ProductSlider/index.jsx";
+
+
+
+
 
 const ProductDetails = () => {
     const [activeTab, setActiveTab] = useState(0)
@@ -13,7 +17,7 @@ const ProductDetails = () => {
 
     return (
         <>
-            <div className="py-5">
+            <div className="py-5 pb-0">
                 <div className="container">
                     <Breadcrumbs aria-label="breadcrumb">
                         <Link underline="hover"
@@ -45,15 +49,17 @@ const ProductDetails = () => {
             </div>
 
             <section className="bg-white py-5">
-                 <div className="container flex gap-8 items-center">
-                     <div className="productZoomContainer w-[40%]">
-                         <ProductZoom/>
-                     </div>
+                <div className="container flex gap-8 items-start">
 
-                     <div className="productContent w-[60%] pr-10 pl-10">
-                         <ProductDetailsComponents />
-                     </div>
-                 </div>
+                    <div className="productZoomContainer w-[40%] h-[520px] shrink-0">
+                        <ProductZoom />
+                    </div>
+
+                    <div className="productContent w-[60%] pr-10 pl-10">
+                        <ProductDetailsComponents />
+                    </div>
+
+                </div>
 
                 <div className="container pt-10">
                     <div className="flex items-center gap-8 mb-5">
@@ -89,15 +95,27 @@ const ProductDetails = () => {
 
                     {activeTab === 0 && (
                         <div className="shadow-md w-full py-5 px-8 rounded-md">
-                            <p>
-                                Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum
-                            </p>
+                            Upgrade your everyday style with this trendy and comfortable digital print t-shirt. Made from soft and breathable fabric, this regular fit t-shirt ensures all-day comfort while giving you a modern casual look. The high-quality digital print adds a stylish and eye-catching touch, perfect for daily wear, hangouts, college, or casual outings.
+                            <br/><br/>
+                            <b>Features:</b> <br/>
+                            Premium quality soft fabric<br/>
+                            Stylish and long-lasting digital print<br/>
+                            Comfortable regular fit design<br/>
+                            Breathable and lightweight material<br/>
+                            Perfect for casual and everyday wear<br/>
+                            Easy to wash and maintain<br/>
+                            <br/><br/>
+                            <b>Specifications:</b><br/>
+                            Fit: Regular Fit<br/>
+                            Print Type: Digital Print<br/>
+                            Neck Type: Round Neck<br/>
+                            Sleeve Type: Half Sleeve<br/>
+                            Suitable For: Men<br/>
 
-                            <h4>Lighweight Design</h4>
-                            <p>
-                                Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum Lore Ipsum
+                            <br/><br/>
 
-                            </p>
+                            Stay comfortable and stylish with this fashionable digital print t-shirt that matches perfectly with jeans, joggers, or shorts.
+
                             <h4>Online Support</h4>
                             <p>you will get 24 hour support with this purchase product and you ca return it with 30 days for and exchange</p>
 
@@ -196,99 +214,101 @@ const ProductDetails = () => {
                     {
                         activeTab === 2 && (
                             <div className="w-[70%] shadow-md py-5 px-8 rounded-md">
+
                                 <div className="w-full productReviewsContainer">
                                     <h2 className="text-[18px]">Customer quetions & answare</h2>
+
+                                    {/* REVIEW LIST */}
                                     <div className="reviewScroll w-[80%] max-h-[300px] overflow-y-scroll overflow-x-hidden mt-4">
+
+                                        {/* Review 1 */}
                                         <div className="review w-full pt-5 pb-5 mt-5 pr-5 border-b border-[rgba(0,0,0,0.1)] flex items-center justify-between">
+
                                             <div className="info w-[60%] flex items-center gap-2">
-                                                <div className="img w-[80px] h[80px] overflow-hidden rounded-full">
-                                                    <img src={img} className="w-full"/>
+                                                <div className="img w-[80px] h-[80px] overflow-hidden rounded-full">
+                                                    <img src={img} className="w-full" />
                                                 </div>
 
                                                 <div className="w-[80%]">
-                                                    <h4 className="text-[16px]">Alice </h4>
+                                                    <h4 className="text-[16px]">Alice</h4>
                                                     <h5 className="text-[13px] mb-0">2026-10-03</h5>
                                                     <p className="mt-0 mb-0">
                                                         Lorem ipsum is simply dummy text of the printing and typesetting industry lorem
                                                     </p>
-
                                                 </div>
-                                                <Rating name="size-small"
-                                                        defaultValue={4}
-                                                        size="small"
-                                                        readOnly/>
-
                                             </div>
 
-                                            <div className="info w-[60%] flex items-center gap-2">
-                                                <div className="img w-[80px] h[80px] overflow-hidden rounded-full">
-                                                    <img src={img} className="w-full"/>
-                                                </div>
-
-                                                <div className="w-[80%]">
-                                                    <h4 className="text-[16px]">Alice </h4>
-                                                    <h5 className="text-[13px] mb-0">2026-10-03</h5>
-                                                    <p className="mt-0 mb-0">
-                                                        Lorem ipsum is simply dummy text of the printing and typesetting industry lorem
-                                                    </p>
-
-                                                </div>
-                                                <Rating name="size-small"
-                                                        defaultValue={4}
-                                                        size="small"
-                                                        readOnly/>
-
-                                            </div>
-
-                                            <div className="info w-[60%] flex items-center gap-2">
-                                                <div className="img w-[80px] h[80px] overflow-hidden rounded-full">
-                                                    <img src={img} className="w-full"/>
-                                                </div>
-
-                                                <div className="w-[80%]">
-                                                    <h4 className="text-[16px]">Alice </h4>
-                                                    <h5 className="text-[13px] mb-0">2026-10-03</h5>
-                                                    <p className="mt-0 mb-0">
-                                                        Lorem ipsum is simply dummy text of the printing and typesetting industry lorem
-                                                    </p>
-
-                                                </div>
-                                                <Rating name="size-small"
-                                                        defaultValue={4}
-                                                        size="small"
-                                                        readOnly/>
-
-                                            </div>
-
-                                            <br/>
-
-                                            <div className="reviewForm bg-[#fafafa] p-4 rounded-md">
-                                                <h2 className="text-[18px]" >Add a review</h2>
-                                                <form className="w-full mt-5">
-                                                    <TextField
-                                                        id="outlined-multiline-flexible"
-                                                        label="Write a review..."
-                                                        className="w-full mb-5"
-                                                        multiline
-                                                        rows={5}/>
-
-                                                    <Rating name="size-small" defaultValue={4} readOnly />
-
-                                                    <div className="flex items-center mt-5">
-                                                        <Button className="btn-org">Submit Review</Button>
-                                                    </div>
-                                                </form>
-
-
-                                            </div>
-
-
+                                            <Rating name="size-small" defaultValue={4} size="small" readOnly />
                                         </div>
+
+                                        {/* Review 2 */}
+                                        <div className="review w-full pt-5 pb-5 pr-5 border-b border-[rgba(0,0,0,0.1)] flex items-center justify-between">
+
+                                            <div className="info w-[60%] flex items-center gap-2">
+                                                <div className="img w-[80px] h-[80px] overflow-hidden rounded-full">
+                                                    <img src={img} className="w-full" />
+                                                </div>
+
+                                                <div className="w-[80%]">
+                                                    <h4 className="text-[16px]">Alice</h4>
+                                                    <h5 className="text-[13px] mb-0">2026-10-03</h5>
+                                                    <p className="mt-0 mb-0">
+                                                        Lorem ipsum is simply dummy text of the printing and typesetting industry lorem
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <Rating name="size-small" defaultValue={4} size="small" readOnly />
+                                        </div>
+
+                                        {/* Review 3 */}
+                                        <div className="review w-full pt-5 pb-5 pr-5 border-b border-[rgba(0,0,0,0.1)] flex items-center justify-between">
+
+                                            <div className="info w-[60%] flex items-center gap-2">
+                                                <div className="img w-[80px] h-[80px] overflow-hidden rounded-full">
+                                                    <img src={img} className="w-full" />
+                                                </div>
+
+                                                <div className="w-[80%]">
+                                                    <h4 className="text-[16px]">Alice</h4>
+                                                    <h5 className="text-[13px] mb-0">2026-10-03</h5>
+                                                    <p className="mt-0 mb-0">
+                                                        Lorem ipsum is simply dummy text of the printing and typesetting industry lorem
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <Rating name="size-small" defaultValue={4} size="small" readOnly />
+                                        </div>
+
                                     </div>
+
+                                    {/* REVIEW FORM (IMPORTANT: OUTSIDE reviewScroll) */}
+                                    <div className="reviewForm bg-[#fafafa] p-4 rounded-md mt-4">
+
+                                        <h2 className="text-[18px]">Add a review</h2>
+
+                                        <form className="w-full mt-5">
+                                            <TextField
+                                                id="outlined-multiline-flexible"
+                                                label="Write a review..."
+                                                className="w-full mb-5"
+                                                multiline
+                                                rows={5}
+                                            />
+
+                                            <Rating name="size-small" defaultValue={4} />
+
+                                            <div className="flex items-center mt-5">
+                                                <Button className="btn-org">Submit Review</Button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
                                 </div>
 
-                            </div>
-                        )
+                            </div>                        )
                     }
 
 

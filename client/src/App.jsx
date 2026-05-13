@@ -7,15 +7,17 @@ import Login from "./pages/Login/index.jsx";
 import Register from "./pages/Register/index.jsx";
 import MyAccount from "./pages/MyAccount/index.jsx";
 import WishList from "./pages/WishList/index.jsx";
-// import {useState} from "react";
+import {useState} from "react";
 import CartPage from "./pages/Cart/index.jsx";
-// import Order from "./pages/Order/index.jsx";
-// import {Button, Dialog} from "@mui/material";
-// import DialogContext from "@mui/material/Dialog/DialogContext.d.ts";
-// import {IoCloseSharp} from "react-icons/io5";
+import Order from "./pages/Order/index.jsx";
+import {Button, Dialog} from "@mui/material";
+import DialogContent from "@mui/material/DialogContent";
+import {IoCloseSharp} from "react-icons/io5";
 
 import {createContext} from "react";
-// import ProductDetails from "./pages/ProductDetails/index.jsx";
+import ProductDetails from "./pages/ProductDetails/index.jsx";
+import ProductZoom from "./components/ProductZoom/index.jsx";
+import ProductDetailsComponents from "./components/ProductDetails/index.jsx";
 
 
 
@@ -24,41 +26,42 @@ const MyContext =createContext();
 
 function App() {
 
-    // const[openProductDetailsModal, setOpenProductDetailsModal] = useState(false);
-    // const[maxWidth, setMaxWidth] =useState("lg")
-    // const[fullWidth, setFullWidth] =useState(true)
-    // const[openCartPanel, setOpenCartPanel] = useState(false);
-    //
-    //
-    // const handleCloseProductDetailsModal =()=>{
-    //     setOpenProductDetailsModal(false);
-    // }
-    // const toggleCartPanel=(newOpen) => {
-    //     setOpenCartPanel(newOpen);
-    // }
+    const[openProductDetailsModal, setOpenProductDetailsModal] = useState(false);
+    const[maxWidth, setMaxWidth] =useState("lg")
+    const[fullWidth, setFullWidth] =useState(true)
+    const[openCartPanel, setOpenCartPanel] = useState(false);
 
-    // const values ={
-    //     setOpenProductDetailsModal,
-    //     setOpenCartPanel,
-    //     toggleCartPanel,
-    //     openCartPanel
-    //
-    // }
+    const handleCloseProductDetailsModal =()=>{
+        setOpenProductDetailsModal(false);
+    }
+
+    const toggleCartPanel=(newOpen) => {
+        setOpenCartPanel(newOpen);
+    }
+
+    const values ={
+        setOpenProductDetailsModal,
+        setOpenCartPanel,
+        toggleCartPanel,
+        openCartPanel
+
+    }
 
   return (
     <>
         <BrowserRouter>
 
-            {/*<MyContext.Provider value={values}>*/}
-            {/*</MyContext.Provider>*/}
+            <MyContext.Provider value={values}>
+
             <Header />
             <Routes>
                 <Route path={"/"} element={<Home/>} />
 
-                <Route path={"/productlist"} element={<ProductListing/>} />
+                <Route path={"/productlist"}
+                       element={<ProductListing/>} />
 
-                {/*<Route path={"/product/:id"}*/}
-                {/*       element={<ProductDetails/>} />*/}
+                <Route path={"/product/:id"}
+                       element={<ProductDetails/>} />
 
 
                 <Route path={"/login"} element={<Login/>}/>
@@ -78,31 +81,36 @@ function App() {
 
             </Routes>
             <Footer/>
+          </MyContext.Provider>
+
        </BrowserRouter>
 
-        {/*<Dialog open={openProductDetailsModel}*/}
-        {/*        fullWidth={fullwidth}*/}
-        {/*        maxWidth={maxWidth}*/}
-        {/*        onClose={handleCloseProductDetailsModal}*/}
-        {/*        aria-labelledby="form-dialog-title"*/}
-        {/*        aria-describedby="form-dialog-description"*/}
-        {/*        className="productDetailsModel"*/}
-        {/*        >*/}
-        {/*    <DialogContext >*/}
-        {/*        <div className="flex items-center w-full productDetailsModalContainer relative">*/}
-        {/*            <Button className="!w-[40px] !h[40px] !min-w-[40px] !rounded-full !text-[#000]
-                            !absolute top-[15px] right=[15px] !bg-[#f1f1f1] " onClick={handleCloseProductionDetailsModal}>*/}
-        {/*                <IoCloseSharp className="text-[20px]"/>*/}
-        {/*            </Button>*/}
-        {/*            <div className="col1 w-[40%] px-3">*/}
-        {/*                <ProductZoom/>*/}
-        {/*            </div>*/}
-        {/*            <div className="col2 w-[60%] py-8 pr-16 productContent">*/}
-        {/*               <ProductDetailsComponent/>*/}
-        {/*            </div>*/}
-        {/*        </div>*/}
-        {/*    </DialogContext>*/}
-        {/*</Dialog>*/}
+
+
+        <Dialog open={openProductDetailsModal}
+                fullWidth={fullWidth}
+                maxWidth={maxWidth}
+                onClose={handleCloseProductDetailsModal}
+                aria-labelledby="form-dialog-title"
+                aria-describedby="form-dialog-description"
+                className="productDetailsModel"
+                >
+            <DialogContent  value={values}>
+                <div className="flex items-center w-full productDetailsModalContainer relative">
+                   <Button className="!w-[40px] !h[40px] !min-w-[40px] !rounded-full !text-[#000]
+                            !absolute top-[15px] right-[15px] !bg-[#f1f1f1] "
+                           onClick={handleCloseProductDetailsModal}>
+                        <IoCloseSharp className="text-[20px]"/>
+                    </Button>
+                    <div className="col1 w-[40%] px-3">
+                        <ProductZoom/>
+                    </div>
+                    <div className="col2 w-[60%] py-8 pr-16 productContent">
+                       <ProductDetailsComponents/>
+                    </div>
+                </div>
+            </DialogContent>
+        </Dialog>
 
 
 
@@ -113,4 +121,4 @@ function App() {
 
 export default App
 
-// export {MyContext}
+export {MyContext}

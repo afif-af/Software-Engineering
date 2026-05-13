@@ -24,6 +24,11 @@ import Banner1 from "../../assets/image/banner2.jpg";
 import Banner2 from "../../assets/image/banner1.jpg";
 import AdsBannerSliderV2 from "../../components/AdsBannerSliderV2/index.jsx";
 
+
+import BannerBox1 from "../../assets/banner/Samsung.jpg";
+import BannerBox2 from "../../assets/banner/Samsungtv.webp";
+
+
 const Home = () => {
     const [value, setValue] = React.useState(0);
     const handleChange=(event, newValue)=>
@@ -42,8 +47,8 @@ const Home = () => {
                     </div>
 
                     <div className="part2 w-[30%] flex items-center  gap-5 justify-between flex-col">
-                        <BannerBoxv2 info="left" image={Banner1}/>
-                        <BannerBoxv2 info="right" image={Banner2}/>
+                        <BannerBoxv2 info="left" image={BannerBox1}/>
+                        <BannerBoxv2 info="right" image={BannerBox1}/>
                     </div>
                 </div>
             </section>

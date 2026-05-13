@@ -3,22 +3,22 @@ import {Button, Rating} from "@mui/material";
 import {MdOutlineShoppingCart} from "react-icons/md";
 import {FaRegHeart} from "react-icons/fa6";
 import {IoGitCompareOutline} from "react-icons/io5";
-import {QtyBox} from "../../components/QtyBox"
+import QtyBox from "../../components/QtyBox"
 
 
 const ProductDetailsComponents = () => {
+
     const[productActionIndex, setProductActionIndex] =useState(null)
 
     return (
         <>
             <h1 className="text-[24px] font-[600] mb-2">
-                Siril Poly silk white & beige colo saree with t short pice | saree for women | stee |sare
-            </h1>
+                Relaxed Fit Digital Print T-Shirt            </h1>
             <div className="flex items-center gap-3">
-                             <span className="text-gray-400 text[13px]">
+                             <span className="text-gray-400 text-[13px]">
                                  Brands : {""}
                                  <span className="font-[500] text-black opacity-75">
-                                     House of Chikankiri
+                                     House of Lacoste
                                  </span>
                              </span>
 
@@ -27,7 +27,7 @@ const ProductDetailsComponents = () => {
                     defaultValue={4}
                     size="small"
                     readOnly/>
-                <span className="text -[13px] cursor-pointer "> Review (5)</span>
+                <span className="text-[13px] cursor-pointer "> Review (5)</span>
             </div>
 
 
@@ -64,9 +64,8 @@ const ProductDetailsComponents = () => {
             <div className="flex items-center gap-5">
                 <span className="text-[16px]">Size:</span>
                 <div className="flex items-center gap-1 actions">
-
                     <Button className={`${
-                        productActionIndex ===0 ?" bg-primary !text-white ": ""
+                        productActionIndex ===0 ?" !bg-primary !text-white ": ""
                     }`}
                             onClick={() => {setProductActionIndex(0)}}
                     >
@@ -74,14 +73,14 @@ const ProductDetailsComponents = () => {
                     </Button>
 
                     <Button className={`${
-                        productActionIndex ===1 ?" bg-primary !text-white ": ""
+                        productActionIndex ===1 ?" !bg-primary !text-white ": ""
                     }`}
                             onClick={() => {setProductActionIndex(1)}}
                     >
                         M
                     </Button>
                     <Button className={`${
-                        productActionIndex ===2 ?" bg-primary !text-white ": ""
+                        productActionIndex ===2 ?" !bg-primary !text-white ": ""
                     }`}
                             onClick={() => {setProductActionIndex(2)}}
                     >
@@ -89,7 +88,7 @@ const ProductDetailsComponents = () => {
                     </Button>
 
                     <Button className={`${
-                        productActionIndex ===3 ?" bg-primary !text-white ": ""
+                        productActionIndex ===3 ?" !bg-primary !text-white ": ""
                     }`}
                             onClick={() => {setProductActionIndex(3)}}
                     >
@@ -117,13 +116,15 @@ const ProductDetailsComponents = () => {
 
             </Button>
             <div className="flex items-center gap-4 mt-4">
-                             <span className="flex items-center gap-2 text-[15px] link cursor-pointer font-[500]">
-                                 <FaRegHeart className="text-[18px]">Add to Wishlist</FaRegHeart>
-                             </span>
+                <span className="flex items-center gap-2 text-[15px] link cursor-pointer font-[500]">
+                    <FaRegHeart className="text-[18px]" />
+                    Add to Wishlist
+                </span>
 
                 <span className="flex items-center gap-2 text-[15px] link cursor-pointer font-[500]">
-                                 <IoGitCompareOutline className="text-[18px]"/> Add to Compare
-                             </span>
+                    <IoGitCompareOutline className="text-[18px]"/>
+                    Add to Compare
+                </span>
 
             </div>
 

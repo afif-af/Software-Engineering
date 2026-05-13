@@ -1,9 +1,9 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
-import { Link } from "react-router-dom";
+import {Navigation} from 'swiper/modules';
+import {Link} from "react-router-dom";
 import ProductItem from "../ProductItem/index.jsx";
 import './style.css'
 
@@ -38,10 +38,6 @@ const ProductsSlider = (props) => {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                <ProductItem/>
-            </SwiperSlide>
-
-                <SwiperSlide>
                     <ProductItem/>
                 </SwiperSlide>
 
@@ -50,20 +46,24 @@ const ProductsSlider = (props) => {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                <ProductItem/>
-            </SwiperSlide>
+                    <ProductItem/>
+                </SwiperSlide>
+
                 <SwiperSlide>
                     <ProductItem/>
                 </SwiperSlide>
                 <SwiperSlide>
-                <ProductItem/>
-            </SwiperSlide>
+                    <ProductItem/>
+                </SwiperSlide>
                 <SwiperSlide>
-                <ProductItem/>
-            </SwiperSlide>
+                    <ProductItem/>
+                </SwiperSlide>
                 <SwiperSlide>
-                <ProductItem/>
-            </SwiperSlide>
+                    <ProductItem/>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <ProductItem/>
+                </SwiperSlide>
 
 
             </Swiper>

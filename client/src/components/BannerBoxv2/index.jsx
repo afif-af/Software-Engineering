@@ -9,7 +9,7 @@ const BannerBoxV2 = (props) => {
             <img
                 src={props.image}
                 alt=""
-                className="w-full transition-all duration-150 group-hover:scale-105"
+                className="w-full h-full object-cover transition-all duration-150 group-hover:scale-105"
             />
 
             <div

@@ -21,12 +21,14 @@ const QtyBox = () => {
     }
 
     return (
-        <div className="qtyBox">
+        <div className="qtyBox relative">
             <input type="number"
                    className="w-full h-[45px] p-2 text-[15px]
                    focus:outline-none
                    border border-[rgba(0,0,0,0.2)] rounded-md "
-                  value={qty} />
+                   value={qty}
+                   readOnly
+            />
 
          <div className="flex items-center justify-between h-[40px] absolute top-0 right-0 z-50">
              <Button className="!min-w-[25px] !w-[25px] !h-[10px] !text-[#000] !rounded-none"

@@ -215,7 +215,7 @@ const Footer = () => {
                     </ul>
 
                     <p className="text-[13px] text-center mb-0">
-                        @ 2024 - Ecommerce software by Alice Bob
+                        @ 2024 - Ecommerce software by Afif AF
                     </p>
 
                     <div className="flex items-center gap-2">
