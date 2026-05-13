@@ -9,7 +9,6 @@ import swaggerJsdoc from "swagger-jsdoc";
 
 import connectDb from "./config/connectDb.js";
 import userRouter from "./route/user.route.js";
-import cartRouter from "./route/cart.route.js";
 
 dotenv.config();
 
