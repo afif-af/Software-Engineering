@@ -47,7 +47,7 @@ const HomeBannerV2 = () => {
                                 $59.00
                             </span>
                             </h3>
-                            <div className="w-full relative -bottom-[100%] opacity-0 btn_">
+                            <div className="w-full ">
                                 <Button className="btn-org"> SHOP NOW</Button>
                             </div>
                         </div>
