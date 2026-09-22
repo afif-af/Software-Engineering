@@ -1,5 +1,5 @@
-import {createContext, useState, useEffect} from 'react'
-import {products} from '../assets/products'
+import {createContext, useState} from 'react'
+import {products} from '../assets/assets'
 import {toast} from 'react-toastify'
 import {useNavigate} from 'react-router-dom'
 
@@ -8,8 +8,8 @@ export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
     const currency = "৳";
-    const deliver_fee =10;
-    const [search, setSearch] = useState(false)
+    const delivery_fee =10;
+    const [search, setSearch] = useState("")
     const [cartItems, setCartItems] = useState({})
     const [showSearch, setShowSearch] = useState(false)
 
@@ -91,7 +91,7 @@ const ShopContextProvider = (props) => {
     const value ={
         products,
         currency,
-        deliver_fee,
+        delivery_fee,
         search,
         setSearch,
         showSearch,

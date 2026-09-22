@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import {ShopContext} from "../context/ShopContext"
+import { Link } from 'react-router-dom'
 
-const ProductItem = () => {
+const ProductItem = ({id, image, name, price}) => {
+  const {currency} =useContext(ShopContext)
+
   return (
-    <div>ProductItem</div>
-  )
-}
+    <Link className='text-gray-700 cursor-pointer' to={'/product/${id}'}>
+      <div className='overflow-hidden'>
+        <img className='hover:scale-110 transition ease-in-out'
+        src={image[0]}/>
+      
+      </div>
+
+      <p className='pt-3 pb-1 text-sm'>{name}</p>
+      <p className='text-sm font-medium'>{currency}{price}</p>
+      <div className='flex flex-col gap-4 my-8'> </div>
+
+    </Link>
+    
+  );
+};
 
 export default ProductItem
