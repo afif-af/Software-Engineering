@@ -71,6 +71,27 @@ const Navbar = () => {
               <p className=''>Back</p>
             </div>
 
+            <NavLink onClick={()=>setVisible(false)} to='/' className='py-2 pl-6 flex flex-col items-center gap-1'>
+              <p>HOME</p>
+              <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
+            </NavLink>
+            
+            <NavLink onClick={()=>setVisible(false)} to='/collection' className='py-2 pl-6 flex flex-col items-center gap-1 '>
+              <p>COLLECTION</p>
+              <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
+            </NavLink>
+
+            <NavLink onClick={()=>setVisible(false)} to='/about' className=' py-2 pl-6 flex flex-col items-center gap-1 '>
+              <p>ABOUT</p>
+              <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
+            </NavLink>
+
+            <NavLink onClick={()=>setVisible(false)} to='/contact' className='py-2 pl-6 flex flex-col items-center gap-1 '>
+              <p>CONTACT</p>
+              <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
+            </NavLink>
+
+
           </div>
 
 
