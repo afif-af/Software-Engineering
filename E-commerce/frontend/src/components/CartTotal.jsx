@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Title from "./Title";
-import {ShopContex} from "../context/ShopContext";
+import {ShopContext} from "../context/ShopContext";
 
 
 const CartTotal = () => {
-  const {currency, delivery_fee, getCartAmount}=useContext(ShopContex);
+  const {currency, delivery_fee, getCartAmount}=useContext(ShopContext);
 
   return (
     <div className='w-full'>
@@ -18,7 +18,7 @@ const CartTotal = () => {
           <p>SubTotal</p>
           <p>
             {currency}
-            {getCartAmount()}.00
+            {getCartAmount()}.00 
           </p>
         </div>
         <hr/>
