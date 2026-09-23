@@ -1,16 +1,23 @@
-import React , {useState} from 'react'
+import React , {useContext, useState} from 'react'
 import {assets} from '../assets/assets'
 import {Link,NavLink} from 'react-router-dom'
+import { ShopContext } from '../context/ShopContext'
 
 const Navbar = () => {
   
   const [visible, setVisible] =useState(false)
+  const {setShowSearch, getCartCount} =useContext(ShopContext)
+
 
 
   return (
     <div className='flex items-center justify-between py-5 font-medium'>
-       <img src={assets.logo} alt="logo" className='w-36' />
+       <Link to ="/">
+           {" "}
+           <img src={assets.logo} alt="logo" className='w-36' />
 
+       </Link>
+       
         <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
 
           <NavLink to='/' className='flex flex-col items-center gap-1'>
@@ -37,10 +44,18 @@ const Navbar = () => {
 
         <div className='flex items-center gap-6'>
 
-          <img src={assets.search_icon} alt="search" className='w-5 cursor-pointer' />
+          <img  src={assets.search_icon}
+            onClick={()=>setShowSearch(true)}
+            alt="search"
+            className='w-5 cursor-pointer' />
           
           <div className='group relative'>
-            <img src={assets.profile_icon} alt="cart" className='w-5 cursor-pointer' />
+            <Link to='/login'>
+              {" "}
+              <img src={assets.profile_icon} alt="cart" className='w-5 cursor-pointer' />
+
+            </Link>
+             
              <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
                <div className='flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-700 rounded-md shadow-lg'>
                     <p className='cursor-pointer hover:text-black'> My Profile</p>
@@ -53,7 +68,9 @@ const Navbar = () => {
 
           <Link to='/cart' className='relative'>
             <img src={assets.cart_icon} alt="cart" className='w-5 min-w-5 cursor-pointer' />
-            <div className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black aspect-square rounded-full  text-white text-[8px]'>0</div>
+            <div className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black aspect-square rounded-full  text-white text-[8px]'>
+              {getCartCount()}
+            </div>
           </Link>
 
           <img onClick={()=>setVisible(true)} src={assets.menu_icon} alt="menu" className='w-5 cursor-pointer sm:hidden' />
