@@ -1,0 +1,17 @@
+services:
+  -name: backend
+  type: web
+  runtime: node
+  plan: free  
+  region: oregon  
+  buildCommand: npm install
+  startCommand: npm start 
+  envVars:
+    - key: NODE_VERSION
+      value: 18  
+    - key: PORT
+      value: 4000  
+    - fromGroup: backend-env  
+  autoDeploy: true
+
+  
