@@ -1,25 +1,36 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+
+import connectDb from "./config/mongodb.js";
+import connectCloudinary from "./config/cloudinary.js";
+import userRouter from "./routes/userRoute.js";s
+import productRouter from "./routes/productRoute.js";
+import cartRouter from "./routes/cartRoute.js";
+import orderRouter from "./routes/orderRoute.js";
+
+
+
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import helmet from "helmet";
-import swaggerUi from "swagger-ui-express";
-import swaggerJsdoc from "swagger-jsdoc";
-
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+conectDb();
+connectCloudinary();
+
+
 app.use(cors({
     origin: true,
     credentials: true}
 ));
-
 app.options(/.*/, cors());
 app.use(express.json());
+
 app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(
@@ -60,5 +71,13 @@ connectDb()
 app.get("/", (req, res) => {
     res.send("Welcome to the E-commerce API");
 });
+
+
+
+app.use("/api/user", userRouter);
+app.use("/api/product", productRouter);
+app.use("/api/cart", cartRouter);
+app.use("/api/order", orderRouter);
+
 
 
