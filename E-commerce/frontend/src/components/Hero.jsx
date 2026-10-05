@@ -1,5 +1,6 @@
 import React from 'react'
 import {assets} from '../assets/assets'
+import hh from '../assets/hh.png'
 
 const Hero = () => {
   return (
@@ -25,7 +26,7 @@ const Hero = () => {
 
         </div>
 
-        <img className='w-full sm:w-1/2' src={assets.hero_img} alt="hero" />
+        <img className='w-full sm:w-1/2' src={hh} alt="hero" />
 
 
 

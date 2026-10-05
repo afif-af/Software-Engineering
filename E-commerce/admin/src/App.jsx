@@ -12,6 +12,8 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useEffect } from 'react'
 
 
+
+
 export const backendUrl = import.meta.env.VITE_BACKEND_URL
 console.log ("Bakcend URL:", backendUrl);
 export const currency ="৳";
@@ -30,6 +32,7 @@ const App =()=> {
   return (
     <div className="bg-gray-50 min-h-screen">
        <ToastContainer />
+      
 
 
       {token === ''?(
@@ -37,6 +40,9 @@ const App =()=> {
 
         ): (
         <>
+          <Navbar setToken={setToken}/>
+          <hr/>
+
           <div className='flex w-full'>
             <Sidebar />
             <div className='flex-1 mx-8 my-8 text-gray-700 text-base'>

@@ -1,5 +1,5 @@
 import {v2 as cloudinary} from "cloudinary";
-import prdouctModel from "../models/productModel.js";
+import productModel from "../models/productModel.js";
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -11,7 +11,7 @@ const addProduct = async (req, res) => {
     try {
         const {name, description, price, category, subCategory, sizes, bestseller} = req.body;
 
-        if(!req.files || object.keys(req.files).length ===0){
+        if(!req.files || Object.keys(req.files).length ===0){
             return res.status(400).json({
                 success: false,
                 message: "No Image Uploaded"
@@ -24,13 +24,28 @@ const addProduct = async (req, res) => {
 
         const images = [image1, image2, image3, image4].filter((item)=> item !== undefined);
 
-        let imageUrl =await Promise.all(
-            images.map(async (item)=>{
-                let result = await cloudinary.uploader.upload(item.path, {resource_type: 'image'});
+        // let imageUrl =await Promise.all(
+        //     images.map(async (item)=>{
+        //         let result = await cloudinary.uploader.upload(item.path, {resource_type: 'image'});
+        //         return result.secure_url;
+        //     })
+
+        // )
+        let imageUrl = await Promise.all(
+        images.map(async (item) => {
+            const base64Image = item.buffer.toString("base64");
+
+            const result = await cloudinary.uploader.upload(
+                `data:${item.mimetype};base64,${base64Image}`,
+                {
+                    resource_type: "image"
+                }
+            );
+
                 return result.secure_url;
             })
-
-        )
+        );
+        
         const productData ={
             name,
             description,
@@ -39,7 +54,7 @@ const addProduct = async (req, res) => {
             subCategory,
             sizes:JSON.parse(sizes),
             bestseller: bestseller === "true" ? true : false,
-            images:imageUrl
+            images:imageUrl,
             date: Date.now()
 
         }

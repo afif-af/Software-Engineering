@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 
 import connectDb from "./config/mongodb.js";
 import connectCloudinary from "./config/cloudinary.js";
-import userRouter from "./routes/userRoute.js";s
+import userRouter from "./routes/userRoute.js";
 import productRouter from "./routes/productRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
@@ -20,8 +20,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-conectDb();
-connectCloudinary();
+connectDb();
+await connectCloudinary();
 
 
 app.use(cors({

@@ -1,35 +1,80 @@
-import React from 'react'
-import {NavLink} from 'react-router-dom'
-import {assets} from "../assets/assets"
+
+import { NavLink } from "react-router-dom";
+import { assets } from "../assets/assets";
 
 const Sidebar = () => {
+
+  const menuItems = [
+    {
+      path: "/add",
+      icon: assets.add_icon,
+      label: "Add Items",
+    },
+    {
+      path: "/list",
+      icon: assets.order_icon,
+      label: "List Items",
+    },
+    {
+      path: "/order",
+      icon: assets.order_icon,
+      label: "Orders",
+    },
+    {
+      path: "/allusers",
+      icon: assets.userIcon,
+      label: "All Users",
+    },
+  ];
+
   return (
-    <div className='w-[18%] min-h-screen border-r-2'>
+    <aside className="w-[220px] min-h-[calc(100vh-65px)] bg-white border-r border-gray-200">
 
-      <div className='flex flex-col gap-4 pt-6 pl-[20%] text-[15px]'>
-        <NavLink className= 'flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l' to='/add'>
-          <img className='w-5 h-5' src={assets.add_icon}/>
-          <p className='md:block text-gray-800'>Add Items</p>
-        </NavLink>
+      
+      <div className="flex flex-col gap-2 p-4">
 
-        <NavLink className= 'flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l' to='/list'>
-          <img className='w-5 h-5' src={assets.order_icon}/>
-          <p className='md:block text-gray-800'>List Items</p>
-        </NavLink>
+        {menuItems.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            className={({ isActive }) =>
+              `group flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium
+              transition-all duration-200
+              ${
+                isActive
+                  ? "bg-blue-50 text-blue-600 shadow-sm"
+                  : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+              }`
+            }
+          >
+            {({ isActive }) => (
+              <>
+              
+                <span
+                  className={`w-1 h-6 rounded-full transition-all duration-200 ${
+                    isActive ? "bg-blue-600" : "bg-transparent"
+                  }`}
+                />
 
-        <NavLink className= 'flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l' to='/order'>
-          <img className='w-5 h-5' src={assets.order_icon}/>
-          <p className='md:block text-gray-800'>Order Items</p>
-        </NavLink>
+                <img
+                  src={item.icon}
+                  alt={item.label}
+                  className={`w-5 h-5 transition-all ${
+                    isActive ? "opacity-100" : "opacity-70 group-hover:opacity-100"
+                  }`}
+                />
 
-         <NavLink className= 'flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l' to='/allusers'>
-          <img className='w-5 h-5' src={assets.userIcon}/>
-          <p className='md:block text-gray-800'>All users</p>
-        </NavLink>
+                <span>{item.label}</span>
+              </>
+            )}
+          </NavLink>
+        ))}
 
       </div>
-    </div>
-  )
-}
 
-export default Sidebar
+    </aside>
+  );
+};
+
+export default Sidebar;
+

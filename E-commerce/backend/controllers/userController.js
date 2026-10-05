@@ -1,4 +1,4 @@
-import userModel from "../models/userModel";
+import userModel from "../models/userModel.js";
 import validator from "validator";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -8,7 +8,7 @@ const createToken = (id) => {
 
 }
 
-const Loginuser = async (req, res) => {
+const loginUser = async (req, res) => {
     try {
         const {email, password} = req.body;
         const user =await userModel.findOne({email});
@@ -71,7 +71,7 @@ const registerUser = async (req, res) => {
         }
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
-        const newuser = await userModel.create({
+        const newUser = await userModel.create({
             name,
             email,
             password: hashedPassword   
@@ -121,4 +121,23 @@ const adminLogin = async (req, res) => {
 }
 
 
-export { Loginuser, registerUser, adminLogin };
+const userList = async (req, res) => {
+    try {
+        const users = await userModel.find().select("-password");
+
+        res.json({
+            success: true,
+            users
+        });
+    }
+    catch (e) {
+        console.error(e);
+
+        res.status(500).json({
+            success: false,
+            message: e.message
+        });
+    }
+};
+
+export { loginUser, registerUser, adminLogin, userList  };

@@ -15,3 +15,5 @@ const authUser =async (req, resizeBy, next) => {
         return resizeBy.json({success: false, message: e.message })
     }
 }
+
+export default authUser

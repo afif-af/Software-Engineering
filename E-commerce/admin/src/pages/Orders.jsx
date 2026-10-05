@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { backendUrl, currency } from '../App';
 import { toast } from 'react-toastify';
@@ -12,7 +12,7 @@ const Orders = ({ token }) => {
 
     try {
       const response = await axios.post(
-        `${backendUrl}api/order/list`,
+        `${backendUrl}/api/order/list`,
         {},
         { headers: { token } }
       );
