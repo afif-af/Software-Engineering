@@ -6,12 +6,14 @@ import OurPolicy from '../components/OurPolicy'
 import NewsLetterBox from '../components/NewsLetterBox'
 
 
+
 const Home = () => {
   return (
     <div className=''>
         <Hero />
         <LatestCollection />
         <BestSeller />
+        
         <OurPolicy />
         <NewsLetterBox />
        

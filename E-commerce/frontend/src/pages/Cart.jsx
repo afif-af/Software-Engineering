@@ -1,66 +1,264 @@
-import React, { useContext, useEffect, useState } from 'react'
+
+import React, { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title';
 import { assets } from '../assets/assets';
 import CartTotal from '../components/CartTotal';
+import { toast } from 'react-toastify';
 
 const Cart = () => {
-  const { products, currency, cartItems, updateQuantity, navigate} = useContext(ShopContext);
+  const {
+    products,
+    currency,
+    cartItems,
+    updateQuantity,
+    navigate
+  } = useContext(ShopContext);
+  
   const [cartData, setCartData] = useState([]);
-  useEffect(()=>{
-    if(products.length > 0){
+  const [selectedItems, setSelectedItems] = useState({});
+
+  useEffect(() => {
+    if (products.length > 0) {
       const tempData = [];
-    for(const items in cartItems){
-      for(const item in cartItems[items]){
-        if(cartItems[items][item] > 0){
-          tempData.push({
-            _id: items,
-            size : item,
-            quantity: cartItems[items][item]
-          })
+      for (const items in cartItems) {
+        for (const item in cartItems[items]) {
+          if (cartItems[items][item] > 0) {
+            tempData.push({
+              _id: items,
+              size: item,
+              quantity: cartItems[items][item]
+            });
+          }
         }
       }
+      setCartData(tempData);
     }
-    setCartData(tempData);
+  }, [cartItems, products]);
+
+  const handleSelectItem = (itemId, size) => {
+    setSelectedItems((prev) => {
+      const newSelected = { ...prev };
+      if (newSelected[itemId]?.[size]) {
+        delete newSelected[itemId][size];
+        if (
+          newSelected[itemId] &&
+          Object.keys(newSelected[itemId]).length === 0
+        ) {
+          delete newSelected[itemId];
+        }
+
+      } else {
+        if (!newSelected[itemId]) {
+          newSelected[itemId] = {};
+        }
+        newSelected[itemId][size] = true;
+      }
+      return newSelected;
+    });
+  };
+
+  const handleCheckout = () => {
+    let hasSelectedItem = false;
+    Object.keys(selectedItems).forEach((itemId) => {
+      Object.keys(selectedItems[itemId] || {}).forEach((size) => {
+        if (selectedItems[itemId][size]) {
+          hasSelectedItem = true;
+        }
+      });
+    });
+
+    if (!hasSelectedItem) {
+      toast.error('Please select at least one item to checkout');
+      return;
     }
-    
-  }, [cartItems, products])
+    navigate('/place-order', {
+      state: {
+        selectedItems
+      }
+    });
+  };
+
   return (
     <div className='border-t pt-14'>
       <div className='text-2xl mb-3'>
-        <Title text1={'YOUR'} text2 = {'CART'}/>
+        <Title
+          text1={'YOUR'}
+          text2={'CART'}
+        />
       </div>
       <div>
-        {cartData.map((item, index) => {
-          const productData = products.find((product)=> product._id === item._id);
+        {cartData.map((item) => {
+          const productData = products.find(
+            (product) => product._id === item._id
+          );
+          if (!productData) {
+            return null;
+          }
+          const isSelected =
+            selectedItems[item._id]?.[item.size] || false;
+
           return (
-            <div key={index} className='py-4 border-t border-b text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4'>
+            <div
+              key={`${item._id}-${item.size}`}
+              className='py-4 border-t border-b text-gray-700 grid grid-cols-[auto_4fr_0.5fr_0.5fr] sm:grid-cols-[auto_4fr_2fr_0.5fr] items-center gap-4'
+            >
+              <input
+                type='checkbox'
+                checked={isSelected}
+                onChange={() =>
+                  handleSelectItem(
+                    item._id,
+                    item.size
+                  )
+                }
+                className='w-4 h-4 cursor-pointer'
+              />
+
               <div className='flex items-start gap-6'>
-                <img src={productData.images[0]} className='w-16 sm:w-20' alt="" />
+                <img
+                  src={productData.images?.[0]}
+                  className='w-16 sm:w-20'
+                  alt={productData.name}
+                />
                 <div>
-                  <p className='text-xs sm:text-lg font-medium'>{productData.name}</p>
+                  <p className='text-xs sm:text-lg font-medium'>
+                    {productData.name}
+                  </p>
                   <div className='flex items-center gap-5 mt-2'>
-                    <p>{currency}{productData.price}</p>
-                    <p className='px-2 sm:px-3 sm:py-1 border bg-slate-50'>{item.size}</p>
+                    <p>
+                      {currency}
+                      {productData.price}
+                    </p>
+                    <p className='px-2 sm:px-3 sm:py-1 border bg-slate-50'>
+                      {item.size}
+                    </p>
                   </div>
                 </div>
               </div>
-              <input onChange={(e)=> e.target.value === '' || e.target.value === '0' ? null : updateQuantity(item._id, item.size, Number(e.target.value))} className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1' type="number" min='1' defaultValue={item.quantity} />
-              <img onClick={()=> updateQuantity(item._id, item.size, 0)} src={assets.bin_icon} className='w-4 mr-4 sm:w-5 cursor-pointer' alt="" />
+
+              <input onChange={(e) => {
+                  if (
+                    e.target.value === '' ||
+                    e.target.value === '0'
+                  ) {
+                    return;
+                  }
+                  updateQuantity(
+                    item._id,
+                    item.size,
+                    Number(e.target.value)
+                  );
+                }}
+                className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1'
+                type='number'
+                min='1'
+                defaultValue={item.quantity}
+              />
+              <img
+                onClick={() =>
+                  updateQuantity(
+                    item._id,
+                    item.size,
+                    0
+                  )
+                }
+                src={assets.bin_icon}
+                className='w-4 mr-4 sm:w-5 cursor-pointer'
+                alt='Delete'
+              />
             </div>
-          )
+          );
         })}
+
       </div>
+
       <div className='flex justify-end my-20'>
         <div className='w-full sm:w-[450px]'>
-          <CartTotal/>
+          <CartTotal />
           <div className='w-full text-end'>
-            <button onClick={()=> navigate('/place-order')} className='bg-black text-white text-sm my-8 px-8 py-3'>PROCEED TO CHECKOUT</button>
+            <button
+              onClick={handleCheckout}
+              className='bg-black text-white text-sm my-8 px-8 py-3'
+            >
+              PROCEED TO CHECKOUT
+            </button>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Cart;
+
+
+
+
+
+// import React, { useContext, useEffect, useState } from 'react'
+// import { ShopContext } from '../context/ShopContext';
+// import Title from '../components/Title';
+// import { assets } from '../assets/assets';
+// import CartTotal from '../components/CartTotal';
+
+// const Cart = () => {
+//   const { products, currency, cartItems, updateQuantity, navigate} = useContext(ShopContext);
+//   const [cartData, setCartData] = useState([]);
+//   useEffect(()=>{
+//     if(products.length > 0){
+//       const tempData = [];
+//     for(const items in cartItems){
+//       for(const item in cartItems[items]){
+//         if(cartItems[items][item] > 0){
+//           tempData.push({
+//             _id: items,
+//             size : item,
+//             quantity: cartItems[items][item]
+//           })
+//         }
+//       }
+//     }
+//     setCartData(tempData);
+//     }
+    
+//   }, [cartItems, products])
+//   return (
+//     <div className='border-t pt-14'>
+//       <div className='text-2xl mb-3'>
+//         <Title text1={'YOUR'} text2 = {'CART'}/>
+//       </div>
+//       <div>
+//         {cartData.map((item, index) => {
+//           const productData = products.find((product)=> product._id === item._id);
+//           return (
+//             <div key={index} className='py-4 border-t border-b text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4'>
+//               <div className='flex items-start gap-6'>
+//                 <img src={productData.images[0]} className='w-16 sm:w-20' alt="" />
+//                 <div>
+//                   <p className='text-xs sm:text-lg font-medium'>{productData.name}</p>
+//                   <div className='flex items-center gap-5 mt-2'>
+//                     <p>{currency}{productData.price}</p>
+//                     <p className='px-2 sm:px-3 sm:py-1 border bg-slate-50'>{item.size}</p>
+//                   </div>
+//                 </div>
+//               </div>
+//               <input onChange={(e)=> e.target.value === '' || e.target.value === '0' ? null : updateQuantity(item._id, item.size, Number(e.target.value))} className='border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1' type="number" min='1' defaultValue={item.quantity} />
+//               <img onClick={()=> updateQuantity(item._id, item.size, 0)} src={assets.bin_icon} className='w-4 mr-4 sm:w-5 cursor-pointer' alt="" />
+//             </div>
+//           )
+//         })}
+//       </div>
+//       <div className='flex justify-end my-20'>
+//         <div className='w-full sm:w-[450px]'>
+//           <CartTotal/>
+//           <div className='w-full text-end'>
+//             <button onClick={()=> navigate('/place-order')} className='bg-black text-white text-sm my-8 px-8 py-3'>PROCEED TO CHECKOUT</button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default Cart;

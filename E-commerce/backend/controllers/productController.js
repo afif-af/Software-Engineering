@@ -9,7 +9,7 @@ cloudinary.config({
 
 const addProduct = async (req, res) => {
     try {
-        const {name, description, price, category, subCategory, sizes, bestseller} = req.body;
+        const {name, description, price, category, subCategory, sizes, bestSeller, bestseller} = req.body;
 
         if(!req.files || Object.keys(req.files).length ===0){
             return res.status(400).json({
@@ -53,7 +53,7 @@ const addProduct = async (req, res) => {
             category,
             subCategory,
             sizes:JSON.parse(sizes),
-            bestseller: bestseller === "true" ? true : false,
+            bestSeller: (bestSeller ?? bestseller) === "true" ? true : false,
             images:imageUrl,
             date: Date.now()
 

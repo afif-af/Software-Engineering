@@ -14,10 +14,8 @@ const NavBar = () => {
     }
   return (
     <div className="flex items-center justify-between py-5 font-medium">
-      {/* Logo */}
       <Link to='/'><img src={assets.logo} className="w-36" alt="Logo" /></Link>
 
-      {/* Navigation Links */}
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
         <li>
           <NavLink to="/" className="flex flex-col items-center gap-1">
@@ -62,9 +60,11 @@ const NavBar = () => {
 
         <Link to="/cart" className="relative">
           <img src={assets.cart_icon} className="w-5 min-w-5" alt="Cart" />
-          <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
-            {getCartCount()}
-          </p>
+          {getCartCount() > 0 && (
+            <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
+              {getCartCount()}
+            </p>
+          )}
         </Link>
         <img onClick={()=>setVisible(true)} src={assets.menu_icon} className='w-5 cursor-pointer sm:hidden' alt="" />
       </div>

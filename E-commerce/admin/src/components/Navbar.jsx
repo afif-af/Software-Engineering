@@ -11,48 +11,23 @@ const Navbar = ({ setToken }) => {
   return (
     <nav className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm">
       <div className="flex items-center justify-between px-5 sm:px-8 lg:px-[4%] py-3">
-
-        {/* Logo */}
         <div className="flex items-center">
           <img
             src={assets.logo}
             alt="Logo"
-            className="w-32 sm:w-36 md:w-40 h-auto object-contain"
-          />
+            className="w-32 sm:w-36 md:w-40 h-auto object-contain"/>
         </div>
-
-        {/* Right Side */}
         <div className="flex items-center gap-3">
-
-          {/* Admin Badge */}
           <div className="hidden sm:flex items-center gap-2 px-3 py-2 rounded-full bg-gray-50 border border-gray-200">
             <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-semibold">
               A
             </div>
-
             <span className="text-sm font-medium text-gray-700">
               Admin
             </span>
           </div>
-
-          {/* Logout Button */}
-          <button
-            onClick={handleLogout}
-            className="
-              flex items-center gap-2
-              bg-gray-900 hover:bg-red-600
-              text-white
-              px-4 sm:px-6
-              py-2
-              rounded-full
-              text-xs sm:text-sm
-              font-medium
-              transition-all duration-200
-              shadow-sm hover:shadow-md
-              active:scale-95
-            "
-          >
-            {/* Logout Icon */}
+          <button onClick={handleLogout}
+            className="flex items-center gap-2 bg-gray-900 hover:bg-red-600 text-white px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md active:scale-95">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -70,7 +45,6 @@ const Navbar = ({ setToken }) => {
 
             Logout
           </button>
-
         </div>
       </div>
     </nav>

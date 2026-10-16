@@ -33,17 +33,13 @@ const UserList = ({ token }) => {
       <h2 className="text-2xl font-semibold mb-5">
         Customer List
       </h2>
-
       <div className="bg-white border rounded-lg overflow-hidden">
-        {/* Header */}
         <div className="grid grid-cols-[50px_1fr_1.5fr_150px] gap-4 px-5 py-3 bg-gray-100 font-semibold text-sm">
           <p>#</p>
           <p>Name</p>
           <p>Email</p>
           <p>Phone</p>
         </div>
-
-        {/* Users */}
         {users.length > 0 ? (
           users.map((user, index) => (
             <div

@@ -140,4 +140,34 @@ const userList = async (req, res) => {
     }
 };
 
-export { loginUser, registerUser, adminLogin, userList  };
+
+const getUserProfile = async (req, res) => {
+    try {
+        const user = await userModel.findById(req.userId).select("-password -cartData");
+        if (!user) return res.status(404).json({ success: false, message: "User not found" });
+        return res.json({ success: true, user });
+    } catch (e) {
+        return res.status(500).json({ success: false, message: e.message });
+    }
+};
+
+const updateUserProfile = async (req, res) => {
+    try {
+        const { name, email, phone, address } = req.body;
+        if (!name || !email || !validator.isEmail(email)) {
+            return res.status(400).json({ success: false, message: "Valid name and email are required" });
+        }
+        const existingUser = await userModel.findOne({ email, _id: { $ne: req.userId } });
+        if (existingUser) return res.status(409).json({ success: false, message: "Email is already in use" });
+        const user = await userModel.findByIdAndUpdate(
+            req.userId,
+            { $set: { name, email, phone: phone || "", address: address || {} } },
+            { new: true, runValidators: true }
+        ).select("-password -cartData");
+        if (!user) return res.status(404).json({ success: false, message: "User not found" });
+        return res.json({ success: true, user, message: "Profile updated" });
+    } catch (e) {
+        return res.status(500).json({ success: false, message: e.message });
+    }
+};
+export { loginUser, registerUser, adminLogin, userList, getUserProfile, updateUserProfile };

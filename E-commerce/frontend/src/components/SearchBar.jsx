@@ -21,25 +21,34 @@ const SearchBar = () => {
 
   },[location]);
 
+  return showSearch && visible ? (
+  <div className="border-b border-gray-300 py-2">
+    <div className="flex items-center">
+      
+      <input
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="flex-1 outline-none bg-inherit text-sm"
+        type="text"
+        placeholder="Search"
+      />
 
+      <img
+        className="w-4 cursor-pointer"
+        src={assets.search_icon}
+        alt="Search"
+      />
 
-  return showSearch && visible ?(
-    <div>
-      <div>
-        <input value={search}
-        onChange={(e)=>setSearch(e.target.value)}
-        className='flex-1 outline-none bg-inherit text-sm'
-        type='text'
-        placeholder='Search'
-        />
-        <img className='w-4' src={assets.search_icon} />
-      </div>
-      <img onClick={()=>setShowSearch(false)}
-          className='inline w-3 cursor-pointer'
-          src={assets.cross_icon} />
+      <img
+        onClick={() => setShowSearch(false)}
+        className="w-3 ml-4 cursor-pointer"
+        src={assets.cross_icon}
+        alt="Close"
+      />
 
     </div>
-  ): null
+  </div>
+) : null;
 };
 
 export default SearchBar

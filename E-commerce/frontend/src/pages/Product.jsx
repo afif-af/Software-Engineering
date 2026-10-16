@@ -15,7 +15,7 @@ const Product = () => {
     const product = products.find((item) => item._id === productId);
     if (product) {
       setProductData(product);
-      setImage(product.images[0]); // Assuming `image` is an array of URLs
+      setImage(product.images[0]);
     }
   };
 
@@ -25,11 +25,8 @@ const Product = () => {
 
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
-      {/* Product Section */}
       <div className="flex flex-col sm:flex-row gap-12">
-        {/* Left Section: Images */}
         <div className="flex-1 flex flex-col sm:flex-row gap-3">
-          {/* Thumbnails */}
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-auto sm:w-[20%] w-full gap-2">
             {productData.images.map((item, index) => (
               <img
@@ -43,13 +40,11 @@ const Product = () => {
               />
             ))}
           </div>
-          {/* Main Image */}
           <div className="w-full sm:w-[80%]">
             <img src={image} className="w-full h-auto border border-gray-200" alt="Main Product" />
           </div>
         </div>
 
-        {/* Right Section: Product Details */}
         <div className="flex-1">
           <h1 className="font-medium text-2xl mt-2">{productData.name}</h1>
           <div className="flex items-center gap-1 mt-2">
@@ -93,7 +88,6 @@ const Product = () => {
         </div>
       </div>
 
-      {/* Description and Reviews */}
       <div className="mt-20">
         <div className="flex">
           <b className="border px-5 py-3 text-sm">Description</b>
@@ -118,7 +112,7 @@ const Product = () => {
         </div>
       </div>
 
-      {/* Related Products Section */}
+      
       <RelatedProducts
         category={productData.category}
         subCategory={productData.subCategory}

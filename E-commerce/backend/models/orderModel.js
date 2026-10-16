@@ -33,12 +33,35 @@ const orderSchema = new mongoose.Schema(
             required: true
         },
 
+        paymentStatus: {
+            type: String,
+            enum: ["pending", "paid", "failed", "cancelled"],
+            default: "pending"
+        },
+
         payment: {
             type: Boolean,
             required: true,
             default: false
         },
 
+        paymentId:{
+            type:String,
+            default:null
+
+        },
+
+        transactionId: {
+            type: String,
+            default: null
+        },
+        
+        bkashResponse: {
+            type: Object,
+            default: null
+        },
+
+        
         date: {
             type: Date,
             default: Date.now

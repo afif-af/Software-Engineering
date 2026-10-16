@@ -1,24 +1,10 @@
 import express from "express";
 import multer from "multer";
-
-import {
-    listProducts,
-    addProduct,
-    removeProduct,
-    singleProduct
-} from "../controllers/productController.js";
-
+import {listProducts,addProduct,removeProduct,singleProduct} from "../controllers/productController.js";
 import adminAuth from "../middleware/adminAuth.js";
-
 const productRouter = express.Router();
-
 const upload = multer({ storage: multer.memoryStorage() });
-
-// Admin Routes
-
-productRouter.post(
-    "/add",
-    adminAuth,
+productRouter.post("/add",adminAuth,
     upload.fields([
         { name: "image1", maxCount: 1 },
         { name: "image2", maxCount: 1 },
@@ -27,11 +13,8 @@ productRouter.post(
     ]),
     addProduct
 );
-
 productRouter.get("/list", listProducts);
-
 productRouter.post("/single", singleProduct);
-
 productRouter.post("/remove", adminAuth, removeProduct);
 
 export default productRouter;

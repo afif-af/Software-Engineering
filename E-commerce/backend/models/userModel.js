@@ -10,6 +10,8 @@ const userSchema = new mongoose.Schema({
         required: true , 
         unique: true
     },
+    phone: { type: String, default: "" },
+    address: { type: Object, default: {} },
     password: { 
         type: String, 
         required: true 
@@ -22,4 +24,3 @@ const userSchema = new mongoose.Schema({
 
 const userModel = mongoose.models.user || mongoose.model("user", userSchema);
 export default userModel;
-
